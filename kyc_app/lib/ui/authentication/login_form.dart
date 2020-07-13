@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -43,24 +44,21 @@ class _LoginFormState extends State<LoginForm> {
                       isLoadingSignUp = false;
                       isLoadingSignIn = false;
                     });
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                      failure.map(
+                    FlushbarHelper.createError(
+                      message: failure.map(
                         serverError: (_) => 'Server error',
                         emailAlreadyInUse: (_) => 'Email already in use',
                         invalidEmailAndPasswordCombination: (_) =>
-                            'Invalid email and password combination',
-                        emailNotVerified: (_) =>
-                            'Verify your email addres before sign in',
+                            'Invalid email and password combination', emailNotVerified: (_) => 'Email Address not verified',
                       ),
-                    )));
+                    ).show(context);
                   },
                   (_) {
                     print("Yeah authenticated");
-                    Future.delayed(const Duration(seconds: 30), () {
-                          ExtendedNavigator.of(context)
+                    // Future.delayed(const Duration(seconds: 20), () {
+                    ExtendedNavigator.of(context)
                         .pushReplacementNamed(Routes.profilePage);
-                    });
+                    // });
 
                     // setState(() {
                     //   _selectedPage = Page.signin;

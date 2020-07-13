@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:ui';
 import 'kyc_upgrade_page_part_0.dart';
+import 'package:kyc_app/domain/user_profile.dart';
 
 class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
@@ -18,6 +20,9 @@ int currentIndex = 0;
 PageController pageController = new PageController(initialPage: 0);
 
 class KycUpgradePage extends StatefulWidget {
+  final UserProfile userProfile;
+
+  const KycUpgradePage({Key key, this.userProfile}) : super(key: key);
   @override
   _KycUpgradePageState createState() => _KycUpgradePageState();
 }

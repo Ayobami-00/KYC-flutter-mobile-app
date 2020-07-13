@@ -9,6 +9,7 @@ import 'package:kyc_app/repository/user_profile_dto.dart';
 import 'package:kyc_app/domain/core/user_services_interface.dart';
 import 'package:kyc_app/domain/user_profile.dart';
 import 'package:kyc_app/repository/user_profile_dto.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 @LazySingleton(as: UserServicesInterface)
 class UserServicesImpl implements UserServicesInterface {
@@ -17,6 +18,7 @@ class UserServicesImpl implements UserServicesInterface {
   FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
   String usersCollection = 'users';
   String documentsCollection = 'documents';
+  static FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
   UserServicesImpl(this._firebaseAuth);
 
@@ -26,6 +28,7 @@ class UserServicesImpl implements UserServicesInterface {
     ProfileImageFile profileImageFile,
   }) async {
     UserProfileDto userProfileDto = UserProfileDto.fromDomain(userProfile);
+    String fcmToken = await _firebaseMessaging.getToken();
     String user_id = await _firebaseAuth
         .currentUser()
         .then((firebaseUser) => firebaseUser.uid);
@@ -42,7 +45,7 @@ class UserServicesImpl implements UserServicesInterface {
     String profileImageUrl =
         await (await uploadTask.onComplete).ref.getDownloadURL();
 
-    _firestore.collection(usersCollection).document(user_id).setData({
+    await _firestore.collection(usersCollection).document(user_id).setData({
       'user_id': user_id,
       'username': userProfileDto.username,
       'emailAddress': userProfileDto.emailAddress,
@@ -50,6 +53,7 @@ class UserServicesImpl implements UserServicesInterface {
       'phoneNumber': userProfileDto.phoneNumber,
       'profileImageUrl': profileImageUrl,
       'kyc_level': userProfileDto.kyc_level,
+      'token': fcmToken,
     });
   }
 
@@ -113,11 +117,11 @@ class UserServicesImpl implements UserServicesInterface {
     String utilityBillUrl =
         await (await uploadTask2.onComplete).ref.getDownloadURL();
       
-    _firestore.collection(usersCollection).document(user_id).setData({
+    _firestore.collection(documentsCollection).document(user_id).setData({
       'user_id': user_id,
       'passportDocumentUrl': passportDocumentUrl,
       'utilityBillUrl': utilityBillUrl,
-      'verification_status': false,
+      'verification_status': "pending",
 
     });
   }

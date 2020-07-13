@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kyc_app/bloc/profile/profile_bloc.dart';
 import 'package:kyc_app/ui/routes/router.gr.dart';
 import 'dart:ui' as ui;
+import 'package:kyc_app/ui/kyc_upgrade/kyc_upgrade_bloc_page.dart';
 
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -111,8 +112,12 @@ class _ProfileDetailsPageState extends State<ProfileDetailsPage> {
                   alignment: FractionalOffset.bottomCenter,
                   child: new FlatButton(
                     onPressed: () {
-                      ExtendedNavigator.of(context)
-                          .pushNamed(Routes.kycUpgradeBlocPage);
+                      // ExtendedNavigator.of(context)
+                      //     .pushNamed(Routes.kycUpgradeBlocPage);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => KycUpgradeBlocPage(userProfile: state.userProfile,)),
+                      );
                     },
                     child: new Container(
                         child: new Row(

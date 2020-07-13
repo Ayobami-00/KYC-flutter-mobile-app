@@ -116,7 +116,8 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         authFailureOrSuccessOption: none(),
       );
 
-      failureOrSuccess = await _authInterface.registerWithEmailAndPassword(
+      final failureOrSuccess =
+          await _authInterface.registerWithEmailAndPassword(
         emailAddress: state.emailAddress,
         password: state.password,
       );
@@ -129,17 +130,22 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         kycLevel: KycLevel(0),
       );
 
+      bool successful;
       failureOrSuccess.fold((l) => null, (_) async {
-        await new Future.delayed(const Duration(seconds: 5));
-        await _userServicesInterface.uploadUserInformation(
-            userProfile: userprofile, profileImageFile: state.profileImageFile);
+        Future.delayed(const Duration(seconds: 5), () {});
+        successful = true;
       });
 
-      yield state.copyWith(
-        isSubmitting: false,
-        showErrorMessages: true,
-        authFailureOrSuccessOption: some(failureOrSuccess),
-      );
+      if (successful) {
+        Future.delayed(const Duration(seconds: 5), () {});
+        await _userServicesInterface.uploadUserInformation(
+            userProfile: userprofile, profileImageFile: state.profileImageFile);
+        yield state.copyWith(
+          isSubmitting: false,
+          showErrorMessages: true,
+          authFailureOrSuccessOption: some(failureOrSuccess),
+        );
+      }
     }
     yield state.copyWith(
       isSubmitting: false,

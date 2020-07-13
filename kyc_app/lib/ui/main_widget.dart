@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
@@ -11,12 +10,17 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
-class MainWidget extends StatelessWidget {
-  final FirebaseMessaging _fcm = FirebaseMessaging();
+class MainWidget extends StatefulWidget {
+  @override
+  _MainWidgetState createState() => _MainWidgetState();
+}
 
-    
-    
-  _fcm.configure(
+class _MainWidgetState extends State<MainWidget> {
+  final FirebaseMessaging _fcm = FirebaseMessaging();
+  @override
+  void initState() {
+    super.initState();
+    _fcm.configure(
       onMessage: (Map<String, dynamic> message) async {
         print("onMessage: $message");
         print("Twooo");
@@ -25,12 +29,6 @@ class MainWidget extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 4),
             child: SafeArea(
               child: ListTile(
-                leading: SizedBox.fromSize(
-                    size: const Size(40, 40),
-                    child: ClipOval(
-                        child: Container(
-                      color: Colors.black,
-                    ))),
                 title: Text('${message['notification']['title']}'),
                 subtitle: Text('${message['notification']['body']}'),
                 trailing: IconButton(
@@ -42,7 +40,6 @@ class MainWidget extends StatelessWidget {
             ),
           );
         }, duration: Duration(hours: 1));
-
       },
       onLaunch: (Map<String, dynamic> message) async {
         print("onLaunch: $message");
@@ -51,10 +48,12 @@ class MainWidget extends StatelessWidget {
         print("onResume: $message");
       },
     );
+  }
+
   @override
   Widget build(BuildContext context) {
     return OverlaySupport(
-          child: MultiBlocProvider(
+      child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) =>

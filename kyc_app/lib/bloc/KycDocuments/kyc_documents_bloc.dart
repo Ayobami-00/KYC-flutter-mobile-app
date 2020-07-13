@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:kyc_app/domain/authentication/value_objects.dart';
 import 'package:kyc_app/domain/core/user_services_interface.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
@@ -16,8 +19,13 @@ class KycDocumentsBloc extends Bloc<KycDocumentsEvent, KycDocumentsState> {
   @override
   Stream<KycDocumentsState> mapEventToState(KycDocumentsEvent event) async* {
     if (event is SaveKycDocuments) {
-      // yield KycDocumentsInitial();
-      var failureOrSuccess = await _userServicesInterface.getUserInformation();
+      yield KycDocumentsLoading();
+
+      var failureOrSuccess = await _userServicesInterface.saveKycDocumentd(
+          passportDocument: PassportDocumentFile(event.passportDocument),
+          utilityBill: UtilityBillFile(
+            event.utilityBill,
+          ));
       yield KycDocumentsSaved();
     }
   }
