@@ -11,17 +11,20 @@ import 'package:kyc_app/ui/splash/splash_page.dart';
 import 'package:kyc_app/ui/authentication/login_page.dart';
 import 'package:kyc_app/ui/profile/profile_page.dart';
 import 'package:kyc_app/ui/kyc_upgrade/kyc_upgrade_page.dart';
+import 'package:kyc_app/ui/kyc_upgrade/kyc_upgrade_bloc_page.dart';
 
 class Routes {
   static const String splashScreen = '/';
   static const String loginPage = '/login-page';
   static const String profilePage = '/profile-page';
   static const String kycUpgradePage = '/kyc-upgrade-page';
+  static const String kycUpgradeBlocPage = '/kyc-upgrade-bloc-page';
   static const all = <String>{
     splashScreen,
     loginPage,
     profilePage,
     kycUpgradePage,
+    kycUpgradeBlocPage,
   };
 }
 
@@ -33,6 +36,7 @@ class Router extends RouterBase {
     RouteDef(Routes.loginPage, page: LoginPage),
     RouteDef(Routes.profilePage, page: ProfilePage),
     RouteDef(Routes.kycUpgradePage, page: KycUpgradePage),
+    RouteDef(Routes.kycUpgradeBlocPage, page: KycUpgradeBlocPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -61,6 +65,12 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    KycUpgradeBlocPage: (RouteData data) {
+      return buildAdaptivePageRoute<dynamic>(
+        builder: (context) => KycUpgradeBlocPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -77,4 +87,7 @@ extension RouterNavigationHelperMethods on ExtendedNavigatorState {
 
   Future<dynamic> pushKycUpgradePage() =>
       pushNamed<dynamic>(Routes.kycUpgradePage);
+
+  Future<dynamic> pushKycUpgradeBlocPage() =>
+      pushNamed<dynamic>(Routes.kycUpgradeBlocPage);
 }

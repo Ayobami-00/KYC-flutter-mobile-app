@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
           authenticated: (_) {
             print('I am authenticated!');
             ExtendedNavigator.of(context)
-              .pushReplacementNamed(Routes.loginPage);
+              .pushReplacementNamed(Routes.profilePage);
           },
           unauthenticated: (_) => ExtendedNavigator.of(context)
               .pushReplacementNamed(Routes.loginPage),

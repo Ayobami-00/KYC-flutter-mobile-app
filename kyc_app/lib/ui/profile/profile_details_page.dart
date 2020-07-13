@@ -78,53 +78,18 @@ class _ProfileDetailsPageState extends State<ProfileDetailsPage> {
                       height: _height / 30,
                       color: Colors.white,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          FlatButton.icon(
-                              onPressed: () {
-                                setState(() {
-                                  emailVisible = !emailVisible;
-                                });
-                              },
-                              icon: emailVisible
-                                  ? Icon(Icons.visibility)
-                                  : Icon(Icons.visibility_off),
-                              label: emailVisible
-                                  ? Text(
-                                      '${state.userProfile.emailAddress.getOrCrash()}')
-                                  : Text('**********')),
-                          FlatButton.icon(
-                              onPressed: () {
-                                print("WHY");
-                                setState(() {
-                                  phoneNumberVisible = true;
-                                });
-                              },
-                              icon: phoneNumberVisible
-                                  ? Icon(Icons.visibility)
-                                  : Icon(Icons.visibility_off),
-                              label: phoneNumberVisible
-                                  ? Text(
-                                      '${state.userProfile.phoneNumber.getOrCrash()}')
-                                  : Text('**********')),
-                        ],
-                      ),
-                    ),
-                    new Divider(height: _height / 30, color: Colors.white),
                     SizedBox(
                       height: _height / 100,
                     ),
                     Expanded(
                       child: CircularPercentIndicator(
-                        radius: _width / 4,
+                        radius: _width / 2,
                         lineWidth: 5.0,
-                        percent: _getKycPercentage(state.userProfile.kycLevel.getOrCrash()),
+                        percent: _getKycPercentage(
+                            state.userProfile.kycLevel.getOrCrash()),
                         // header: new Text("KYC"),
-                        center: new Text("KYC ${state.userProfile.kycLevel.getOrCrash()}",
+                        center: new Text(
+                            "KYC ${state.userProfile.kycLevel.getOrCrash()}",
                             style:
                                 TextStyle(color: Colors.white, fontSize: 20.0)),
                         circularStrokeCap: CircularStrokeCap.butt,
@@ -147,8 +112,7 @@ class _ProfileDetailsPageState extends State<ProfileDetailsPage> {
                   child: new FlatButton(
                     onPressed: () {
                       ExtendedNavigator.of(context)
-              .pushReplacementNamed(Routes.kycUpgradePage);
-
+                          .pushNamed(Routes.kycUpgradeBlocPage);
                     },
                     child: new Container(
                         child: new Row(
