@@ -27,3 +27,11 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
     return left(ValueFailure.empty(failedValue: input));
   }
 }
+
+Either<ValueFailure<int>, int> validateIntNotEmpty(int input) {
+  if (input.toString().isNotEmpty) {
+    return right(input);
+  } else {
+    return left(ValueFailure.empty(failedValue: input));
+  }
+}

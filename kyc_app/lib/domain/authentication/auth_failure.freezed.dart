@@ -23,6 +23,10 @@ class _$AuthFailureTearOff {
   InvalidEmailAndPasswordCombination invalidEmailAndPasswordCombination() {
     return const InvalidEmailAndPasswordCombination();
   }
+
+  EmailNotVerified emailNotVerified() {
+    return const EmailNotVerified();
+  }
 }
 
 // ignore: unused_element
@@ -34,12 +38,14 @@ mixin _$AuthFailure {
     @required Result serverError(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
+    @required Result emailNotVerified(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
+    Result emailNotVerified(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -49,6 +55,7 @@ mixin _$AuthFailure {
     @required
         Result invalidEmailAndPasswordCombination(
             InvalidEmailAndPasswordCombination value),
+    @required Result emailNotVerified(EmailNotVerified value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -56,6 +63,7 @@ mixin _$AuthFailure {
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
         InvalidEmailAndPasswordCombination value),
+    Result emailNotVerified(EmailNotVerified value),
     @required Result orElse(),
   });
 }
@@ -112,10 +120,12 @@ class _$ServerError implements ServerError {
     @required Result serverError(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
+    @required Result emailNotVerified(),
   }) {
     assert(serverError != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
     return serverError();
   }
 
@@ -125,6 +135,7 @@ class _$ServerError implements ServerError {
     Result serverError(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
+    Result emailNotVerified(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -142,10 +153,12 @@ class _$ServerError implements ServerError {
     @required
         Result invalidEmailAndPasswordCombination(
             InvalidEmailAndPasswordCombination value),
+    @required Result emailNotVerified(EmailNotVerified value),
   }) {
     assert(serverError != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
     return serverError(this);
   }
 
@@ -156,6 +169,7 @@ class _$ServerError implements ServerError {
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
         InvalidEmailAndPasswordCombination value),
+    Result emailNotVerified(EmailNotVerified value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -209,10 +223,12 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     @required Result serverError(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
+    @required Result emailNotVerified(),
   }) {
     assert(serverError != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
     return emailAlreadyInUse();
   }
 
@@ -222,6 +238,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     Result serverError(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
+    Result emailNotVerified(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -239,10 +256,12 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     @required
         Result invalidEmailAndPasswordCombination(
             InvalidEmailAndPasswordCombination value),
+    @required Result emailNotVerified(EmailNotVerified value),
   }) {
     assert(serverError != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
     return emailAlreadyInUse(this);
   }
 
@@ -253,6 +272,7 @@ class _$EmailAlreadyInUse implements EmailAlreadyInUse {
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
         InvalidEmailAndPasswordCombination value),
+    Result emailNotVerified(EmailNotVerified value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -311,10 +331,12 @@ class _$InvalidEmailAndPasswordCombination
     @required Result serverError(),
     @required Result emailAlreadyInUse(),
     @required Result invalidEmailAndPasswordCombination(),
+    @required Result emailNotVerified(),
   }) {
     assert(serverError != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
     return invalidEmailAndPasswordCombination();
   }
 
@@ -324,6 +346,7 @@ class _$InvalidEmailAndPasswordCombination
     Result serverError(),
     Result emailAlreadyInUse(),
     Result invalidEmailAndPasswordCombination(),
+    Result emailNotVerified(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -341,10 +364,12 @@ class _$InvalidEmailAndPasswordCombination
     @required
         Result invalidEmailAndPasswordCombination(
             InvalidEmailAndPasswordCombination value),
+    @required Result emailNotVerified(EmailNotVerified value),
   }) {
     assert(serverError != null);
     assert(emailAlreadyInUse != null);
     assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
     return invalidEmailAndPasswordCombination(this);
   }
 
@@ -355,6 +380,7 @@ class _$InvalidEmailAndPasswordCombination
     Result emailAlreadyInUse(EmailAlreadyInUse value),
     Result invalidEmailAndPasswordCombination(
         InvalidEmailAndPasswordCombination value),
+    Result emailNotVerified(EmailNotVerified value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -368,4 +394,107 @@ class _$InvalidEmailAndPasswordCombination
 abstract class InvalidEmailAndPasswordCombination implements AuthFailure {
   const factory InvalidEmailAndPasswordCombination() =
       _$InvalidEmailAndPasswordCombination;
+}
+
+abstract class $EmailNotVerifiedCopyWith<$Res> {
+  factory $EmailNotVerifiedCopyWith(
+          EmailNotVerified value, $Res Function(EmailNotVerified) then) =
+      _$EmailNotVerifiedCopyWithImpl<$Res>;
+}
+
+class _$EmailNotVerifiedCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $EmailNotVerifiedCopyWith<$Res> {
+  _$EmailNotVerifiedCopyWithImpl(
+      EmailNotVerified _value, $Res Function(EmailNotVerified) _then)
+      : super(_value, (v) => _then(v as EmailNotVerified));
+
+  @override
+  EmailNotVerified get _value => super._value as EmailNotVerified;
+}
+
+class _$EmailNotVerified implements EmailNotVerified {
+  const _$EmailNotVerified();
+
+  @override
+  String toString() {
+    return 'AuthFailure.emailNotVerified()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is EmailNotVerified);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result serverError(),
+    @required Result emailAlreadyInUse(),
+    @required Result invalidEmailAndPasswordCombination(),
+    @required Result emailNotVerified(),
+  }) {
+    assert(serverError != null);
+    assert(emailAlreadyInUse != null);
+    assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
+    return emailNotVerified();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result serverError(),
+    Result emailAlreadyInUse(),
+    Result invalidEmailAndPasswordCombination(),
+    Result emailNotVerified(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (emailNotVerified != null) {
+      return emailNotVerified();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result serverError(ServerError value),
+    @required Result emailAlreadyInUse(EmailAlreadyInUse value),
+    @required
+        Result invalidEmailAndPasswordCombination(
+            InvalidEmailAndPasswordCombination value),
+    @required Result emailNotVerified(EmailNotVerified value),
+  }) {
+    assert(serverError != null);
+    assert(emailAlreadyInUse != null);
+    assert(invalidEmailAndPasswordCombination != null);
+    assert(emailNotVerified != null);
+    return emailNotVerified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result serverError(ServerError value),
+    Result emailAlreadyInUse(EmailAlreadyInUse value),
+    Result invalidEmailAndPasswordCombination(
+        InvalidEmailAndPasswordCombination value),
+    Result emailNotVerified(EmailNotVerified value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (emailNotVerified != null) {
+      return emailNotVerified(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EmailNotVerified implements AuthFailure {
+  const factory EmailNotVerified() = _$EmailNotVerified;
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:kyc_app/domain/core/failures.dart';
 import 'package:kyc_app/domain/core/value_objects.dart';
@@ -59,16 +61,53 @@ class PhoneNumber extends ValueObject<String> {
   const PhoneNumber._(this.value);
 }
 
-class ProfileImageUrl extends ValueObject<String> {
+class ProfileImageFile extends ValueObject<File> {
   @override
-  final Either<ValueFailure<String>, String> value;
+  final Either<ValueFailure<File>, File> value;
 
-  factory ProfileImageUrl(String input) {
+  factory ProfileImageFile(File input) {
     assert(input != null);
-    return ProfileImageUrl._(
-      validateStringNotEmpty(input),
+    return ProfileImageFile._(right(input));
+  }
+
+  const ProfileImageFile._(this.value);
+}
+
+class PassportDocumentFile extends ValueObject<File> {
+  @override
+  final Either<ValueFailure<File>, File> value;
+
+  factory PassportDocumentFile(File input) {
+    assert(input != null);
+    return PassportDocumentFile._(right(input));
+  }
+
+  const PassportDocumentFile._(this.value);
+}
+
+class UtilityBillFile extends ValueObject<File> {
+  @override
+  final Either<ValueFailure<File>, File> value;
+
+  factory UtilityBillFile (File input) {
+    assert(input != null);
+    return UtilityBillFile._(right(input));
+  }
+
+  const UtilityBillFile._(this.value);
+}
+
+
+class KycLevel extends ValueObject<int> {
+  @override
+  final Either<ValueFailure<int>, int> value;
+
+  factory KycLevel(int input) {
+    assert(input != null);
+    return KycLevel._(
+      validateIntNotEmpty(input),
     );
   }
 
-  const ProfileImageUrl._(this.value);
+  const KycLevel._(this.value);
 }

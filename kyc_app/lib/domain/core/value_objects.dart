@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kyc_app/domain/core/errors.dart';
 import 'package:kyc_app/domain/core/failures.dart';
+import 'package:kyc_app/domain/core/value_validators.dart';
 import 'package:uuid/uuid.dart';
 
 @immutable
@@ -57,4 +58,16 @@ class UniqueId extends ValueObject<String> {
   }
 
   const UniqueId._(this.value);
+}
+
+class ProfileImageUrl extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ProfileImageUrl(String input) {
+    assert(input != null);
+    return ProfileImageUrl._(validateStringNotEmpty(input));
+  }
+
+  const ProfileImageUrl._(this.value);
 }

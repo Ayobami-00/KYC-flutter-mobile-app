@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -5,6 +8,8 @@ import 'package:injectable/injectable.dart';
 import 'package:kyc_app/domain/authentication/auth_failure.dart';
 import 'package:kyc_app/domain/authentication/auth_interface.dart';
 import 'package:kyc_app/domain/authentication/value_objects.dart';
+import 'package:kyc_app/domain/core/user_services_interface.dart';
+import 'package:kyc_app/domain/user_profile.dart';
 
 part 'login_form_event.dart';
 part 'login_form_state.dart';
@@ -14,11 +19,10 @@ part 'login_form_bloc.freezed.dart';
 @injectable
 class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
   final AuthInterface _authInterface;
+  final UserServicesInterface _userServicesInterface;
 
-  LoginFormBloc(this._authInterface) : super(null);
-
-  @override
-  LoginFormState get initialState => LoginFormState.initial();
+  LoginFormBloc(this._authInterface, this._userServicesInterface)
+      : super(LoginFormState.initial());
 
   @override
   Stream<LoginFormState> mapEventToState(
@@ -49,11 +53,20 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
           authFailureOrSuccessOption: none(),
         );
       },
+      profileImageFileChanged: (e) async* {
+        yield state.copyWith(
+          profileImageFile: ProfileImageFile(e.profileImageFile),
+          authFailureOrSuccessOption: none(),
+        );
+      },
       registerWithEmailAndPasswordPressed: (e) async* {
         yield* _performSignUp();
       },
       signInWithEmailAndPasswordPressed: (e) async* {
         yield* _performSignIn();
+      },
+      resetLoginState: (e) async* {
+        yield LoginFormState.initial();
       },
     );
   }
@@ -63,6 +76,7 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
 
     final isEmailValid = state.emailAddress.isValid();
     final isPasswordValid = state.password.isValid();
+    print(state.emailAddress);
 
     if (isEmailValid && isPasswordValid) {
       yield state.copyWith(
@@ -85,7 +99,6 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
     );
   }
 
-
   Stream<LoginFormState> _performSignUp() async* {
     Either<AuthFailure, Unit> failureOrSuccess;
 
@@ -94,7 +107,10 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
     final isPasswordValid = state.password.isValid();
     final isPhoneNumberValid = state.phoneNumber.isValid();
 
-    if (isUsernameValid && isEmailValid && isPasswordValid && isPhoneNumberValid) {
+    if (isUsernameValid &&
+        isEmailValid &&
+        isPasswordValid &&
+        isPhoneNumberValid) {
       yield state.copyWith(
         isSubmitting: true,
         authFailureOrSuccessOption: none(),
@@ -104,16 +120,31 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
         emailAddress: state.emailAddress,
         password: state.password,
       );
-    }
 
+      UserProfile userprofile = UserProfile(
+        username: state.username,
+        emailAddress: state.emailAddress,
+        password: state.password,
+        phoneNumber: state.phoneNumber,
+        kycLevel: KycLevel(0),
+      );
+
+      failureOrSuccess.fold((l) => null, (_) async {
+        await new Future.delayed(const Duration(seconds: 5));
+        await _userServicesInterface.uploadUserInformation(
+            userProfile: userprofile, profileImageFile: state.profileImageFile);
+      });
+
+      yield state.copyWith(
+        isSubmitting: false,
+        showErrorMessages: true,
+        authFailureOrSuccessOption: some(failureOrSuccess),
+      );
+    }
     yield state.copyWith(
       isSubmitting: false,
       showErrorMessages: true,
-      authFailureOrSuccessOption: optionOf(failureOrSuccess),
+      authFailureOrSuccessOption: none(),
     );
   }
 }
-
-
-
-

@@ -15,5 +15,6 @@ abstract class AuthInterface {
     @required EmailAddress emailAddress,
     @required Password password,
   });
+  Future<Option<bool>> getEmailVerificationStatus();
   Future<void> signOut();
 }

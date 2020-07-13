@@ -30,10 +30,12 @@ class FirebaseAuthImpl implements AuthInterface {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-        email: emailAddressStr,
-        password: passwordStr,
-      );
+      _firebaseAuth
+          .createUserWithEmailAndPassword(
+            email: emailAddressStr,
+            password: passwordStr,
+          )
+          .then((value) => value.user.sendEmailVerification());
       return right(unit);
     } on PlatformException catch (e) {
       if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
@@ -52,11 +54,19 @@ class FirebaseAuthImpl implements AuthInterface {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     try {
-      await _firebaseAuth.signInWithEmailAndPassword(
+      var _authResult = await _firebaseAuth.signInWithEmailAndPassword(
         email: emailAddressStr,
         password: passwordStr,
       );
-      return right(unit);
+      return(right(unit));
+      // if (_authResult.user.isEmailVerified) {
+      //   //Verified
+      //   return right(unit);
+      // } else {
+      //   left(const AuthFailure.emailNotVerified());
+
+      // }
+      
     } on PlatformException catch (e) {
       if (e.code == 'ERROR_WRONG_PASSWORD' ||
           e.code == 'ERROR_USER_NOT_FOUND') {
@@ -69,4 +79,18 @@ class FirebaseAuthImpl implements AuthInterface {
 
   @override
   Future<void> signOut() async => await _firebaseAuth.signOut();
+
+  @override
+  Future<Option<bool>> getEmailVerificationStatus() {
+    return _firebaseAuth
+      .currentUser().then((FirebaseUser firebaseUser) {
+        if(firebaseUser != null){
+          return optionOf(firebaseUser.isEmailVerified);
+        }
+        else{
+          return optionOf(null);
+        }
+
+      });
+  }
 }

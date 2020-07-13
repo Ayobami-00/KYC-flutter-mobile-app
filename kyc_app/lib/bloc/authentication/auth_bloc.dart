@@ -15,10 +15,7 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthInterface _authInterface;
 
-  AuthBloc(this._authInterface) : super(null);
-
-  @override
-  AuthState get initialState => const AuthState.initial();
+  AuthBloc(this._authInterface) : super(AuthState.initial());
 
   @override
   Stream<AuthState> mapEventToState(
@@ -29,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final userOption = await _authInterface.getSignedInUser();
         yield userOption.fold(
           () => const AuthState.unauthenticated(),
-          (_) => const AuthState.authenticated(),
+          (value) => const AuthState.authenticated() //value? const AuthState.authenticated() :const AuthState.unauthenticated(),
         );
       },
       signOut: (e) async* {

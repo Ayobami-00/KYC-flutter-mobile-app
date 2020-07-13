@@ -7,8 +7,10 @@ abstract class LoginFormEvent with _$LoginFormEvent {
   const factory LoginFormEvent.passwordChanged(String passwordStr) =
       PasswordChanged;
   const factory LoginFormEvent.phoneNumberChanged(String phoneNumberStr) = PhoneNumberChanged;
+  const factory LoginFormEvent.profileImageFileChanged(File profileImageFile) = ProfileImageFileChanged;
   const factory LoginFormEvent.registerWithEmailAndPasswordPressed() =
       RegisterWithEmailAndPasswordPressed;
   const factory LoginFormEvent.signInWithEmailAndPasswordPressed() =
       SignInWithEmailAndPasswordPressed;
+  const factory LoginFormEvent.resetLoginState() = ResetLoginState;
 }

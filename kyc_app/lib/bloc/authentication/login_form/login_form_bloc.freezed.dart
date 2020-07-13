@@ -36,12 +36,22 @@ class _$LoginFormEventTearOff {
     );
   }
 
+  ProfileImageFileChanged profileImageFileChanged(File profileImageFile) {
+    return ProfileImageFileChanged(
+      profileImageFile,
+    );
+  }
+
   RegisterWithEmailAndPasswordPressed registerWithEmailAndPasswordPressed() {
     return const RegisterWithEmailAndPasswordPressed();
   }
 
   SignInWithEmailAndPasswordPressed signInWithEmailAndPasswordPressed() {
     return const SignInWithEmailAndPasswordPressed();
+  }
+
+  ResetLoginState resetLoginState() {
+    return const ResetLoginState();
   }
 }
 
@@ -55,8 +65,10 @@ mixin _$LoginFormEvent {
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -64,8 +76,10 @@ mixin _$LoginFormEvent {
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -74,12 +88,14 @@ mixin _$LoginFormEvent {
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -87,10 +103,12 @@ mixin _$LoginFormEvent {
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   });
 }
@@ -172,15 +190,19 @@ class _$UsernameChanged implements UsernameChanged {
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return userNameChanged(usernameStr);
   }
 
@@ -191,8 +213,10 @@ class _$UsernameChanged implements UsernameChanged {
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -209,19 +233,23 @@ class _$UsernameChanged implements UsernameChanged {
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return userNameChanged(this);
   }
 
@@ -232,10 +260,12 @@ class _$UsernameChanged implements UsernameChanged {
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -315,15 +345,19 @@ class _$EmailChanged implements EmailChanged {
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return emailChanged(emailStr);
   }
 
@@ -334,8 +368,10 @@ class _$EmailChanged implements EmailChanged {
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -352,19 +388,23 @@ class _$EmailChanged implements EmailChanged {
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return emailChanged(this);
   }
 
@@ -375,10 +415,12 @@ class _$EmailChanged implements EmailChanged {
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -458,15 +500,19 @@ class _$PasswordChanged implements PasswordChanged {
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return passwordChanged(passwordStr);
   }
 
@@ -477,8 +523,10 @@ class _$PasswordChanged implements PasswordChanged {
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -495,19 +543,23 @@ class _$PasswordChanged implements PasswordChanged {
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return passwordChanged(this);
   }
 
@@ -518,10 +570,12 @@ class _$PasswordChanged implements PasswordChanged {
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -605,15 +659,19 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return phoneNumberChanged(phoneNumberStr);
   }
 
@@ -624,8 +682,10 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -642,19 +702,23 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return phoneNumberChanged(this);
   }
 
@@ -665,10 +729,12 @@ class _$PhoneNumberChanged implements PhoneNumberChanged {
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -685,6 +751,167 @@ abstract class PhoneNumberChanged implements LoginFormEvent {
 
   String get phoneNumberStr;
   $PhoneNumberChangedCopyWith<PhoneNumberChanged> get copyWith;
+}
+
+abstract class $ProfileImageFileChangedCopyWith<$Res> {
+  factory $ProfileImageFileChangedCopyWith(ProfileImageFileChanged value,
+          $Res Function(ProfileImageFileChanged) then) =
+      _$ProfileImageFileChangedCopyWithImpl<$Res>;
+  $Res call({File profileImageFile});
+}
+
+class _$ProfileImageFileChangedCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res>
+    implements $ProfileImageFileChangedCopyWith<$Res> {
+  _$ProfileImageFileChangedCopyWithImpl(ProfileImageFileChanged _value,
+      $Res Function(ProfileImageFileChanged) _then)
+      : super(_value, (v) => _then(v as ProfileImageFileChanged));
+
+  @override
+  ProfileImageFileChanged get _value => super._value as ProfileImageFileChanged;
+
+  @override
+  $Res call({
+    Object profileImageFile = freezed,
+  }) {
+    return _then(ProfileImageFileChanged(
+      profileImageFile == freezed
+          ? _value.profileImageFile
+          : profileImageFile as File,
+    ));
+  }
+}
+
+class _$ProfileImageFileChanged implements ProfileImageFileChanged {
+  const _$ProfileImageFileChanged(this.profileImageFile)
+      : assert(profileImageFile != null);
+
+  @override
+  final File profileImageFile;
+
+  @override
+  String toString() {
+    return 'LoginFormEvent.profileImageFileChanged(profileImageFile: $profileImageFile)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ProfileImageFileChanged &&
+            (identical(other.profileImageFile, profileImageFile) ||
+                const DeepCollectionEquality()
+                    .equals(other.profileImageFile, profileImageFile)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(profileImageFile);
+
+  @override
+  $ProfileImageFileChangedCopyWith<ProfileImageFileChanged> get copyWith =>
+      _$ProfileImageFileChangedCopyWithImpl<ProfileImageFileChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result userNameChanged(String usernameStr),
+    @required Result emailChanged(String emailStr),
+    @required Result passwordChanged(String passwordStr),
+    @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
+    @required Result registerWithEmailAndPasswordPressed(),
+    @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
+  }) {
+    assert(userNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
+    assert(registerWithEmailAndPasswordPressed != null);
+    assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
+    return profileImageFileChanged(profileImageFile);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result userNameChanged(String usernameStr),
+    Result emailChanged(String emailStr),
+    Result passwordChanged(String passwordStr),
+    Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
+    Result registerWithEmailAndPasswordPressed(),
+    Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (profileImageFileChanged != null) {
+      return profileImageFileChanged(profileImageFile);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result userNameChanged(UsernameChanged value),
+    @required Result emailChanged(EmailChanged value),
+    @required Result passwordChanged(PasswordChanged value),
+    @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
+    @required
+        Result registerWithEmailAndPasswordPressed(
+            RegisterWithEmailAndPasswordPressed value),
+    @required
+        Result signInWithEmailAndPasswordPressed(
+            SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
+  }) {
+    assert(userNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
+    assert(registerWithEmailAndPasswordPressed != null);
+    assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
+    return profileImageFileChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result userNameChanged(UsernameChanged value),
+    Result emailChanged(EmailChanged value),
+    Result passwordChanged(PasswordChanged value),
+    Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
+    Result registerWithEmailAndPasswordPressed(
+        RegisterWithEmailAndPasswordPressed value),
+    Result signInWithEmailAndPasswordPressed(
+        SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (profileImageFileChanged != null) {
+      return profileImageFileChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileImageFileChanged implements LoginFormEvent {
+  const factory ProfileImageFileChanged(File profileImageFile) =
+      _$ProfileImageFileChanged;
+
+  File get profileImageFile;
+  $ProfileImageFileChangedCopyWith<ProfileImageFileChanged> get copyWith;
 }
 
 abstract class $RegisterWithEmailAndPasswordPressedCopyWith<$Res> {
@@ -732,15 +959,19 @@ class _$RegisterWithEmailAndPasswordPressed
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return registerWithEmailAndPasswordPressed();
   }
 
@@ -751,8 +982,10 @@ class _$RegisterWithEmailAndPasswordPressed
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -769,19 +1002,23 @@ class _$RegisterWithEmailAndPasswordPressed
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return registerWithEmailAndPasswordPressed(this);
   }
 
@@ -792,10 +1029,12 @@ class _$RegisterWithEmailAndPasswordPressed
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -856,15 +1095,19 @@ class _$SignInWithEmailAndPasswordPressed
     @required Result emailChanged(String emailStr),
     @required Result passwordChanged(String passwordStr),
     @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
     @required Result registerWithEmailAndPasswordPressed(),
     @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return signInWithEmailAndPasswordPressed();
   }
 
@@ -875,8 +1118,10 @@ class _$SignInWithEmailAndPasswordPressed
     Result emailChanged(String emailStr),
     Result passwordChanged(String passwordStr),
     Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
     Result registerWithEmailAndPasswordPressed(),
     Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -893,19 +1138,23 @@ class _$SignInWithEmailAndPasswordPressed
     @required Result emailChanged(EmailChanged value),
     @required Result passwordChanged(PasswordChanged value),
     @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
     @required
         Result registerWithEmailAndPasswordPressed(
             RegisterWithEmailAndPasswordPressed value),
     @required
         Result signInWithEmailAndPasswordPressed(
             SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
   }) {
     assert(userNameChanged != null);
     assert(emailChanged != null);
     assert(passwordChanged != null);
     assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
     assert(registerWithEmailAndPasswordPressed != null);
     assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
     return signInWithEmailAndPasswordPressed(this);
   }
 
@@ -916,10 +1165,12 @@ class _$SignInWithEmailAndPasswordPressed
     Result emailChanged(EmailChanged value),
     Result passwordChanged(PasswordChanged value),
     Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
     Result registerWithEmailAndPasswordPressed(
         RegisterWithEmailAndPasswordPressed value),
     Result signInWithEmailAndPasswordPressed(
         SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -935,6 +1186,136 @@ abstract class SignInWithEmailAndPasswordPressed implements LoginFormEvent {
       _$SignInWithEmailAndPasswordPressed;
 }
 
+abstract class $ResetLoginStateCopyWith<$Res> {
+  factory $ResetLoginStateCopyWith(
+          ResetLoginState value, $Res Function(ResetLoginState) then) =
+      _$ResetLoginStateCopyWithImpl<$Res>;
+}
+
+class _$ResetLoginStateCopyWithImpl<$Res>
+    extends _$LoginFormEventCopyWithImpl<$Res>
+    implements $ResetLoginStateCopyWith<$Res> {
+  _$ResetLoginStateCopyWithImpl(
+      ResetLoginState _value, $Res Function(ResetLoginState) _then)
+      : super(_value, (v) => _then(v as ResetLoginState));
+
+  @override
+  ResetLoginState get _value => super._value as ResetLoginState;
+}
+
+class _$ResetLoginState implements ResetLoginState {
+  const _$ResetLoginState();
+
+  @override
+  String toString() {
+    return 'LoginFormEvent.resetLoginState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ResetLoginState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result userNameChanged(String usernameStr),
+    @required Result emailChanged(String emailStr),
+    @required Result passwordChanged(String passwordStr),
+    @required Result phoneNumberChanged(String phoneNumberStr),
+    @required Result profileImageFileChanged(File profileImageFile),
+    @required Result registerWithEmailAndPasswordPressed(),
+    @required Result signInWithEmailAndPasswordPressed(),
+    @required Result resetLoginState(),
+  }) {
+    assert(userNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
+    assert(registerWithEmailAndPasswordPressed != null);
+    assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
+    return resetLoginState();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result userNameChanged(String usernameStr),
+    Result emailChanged(String emailStr),
+    Result passwordChanged(String passwordStr),
+    Result phoneNumberChanged(String phoneNumberStr),
+    Result profileImageFileChanged(File profileImageFile),
+    Result registerWithEmailAndPasswordPressed(),
+    Result signInWithEmailAndPasswordPressed(),
+    Result resetLoginState(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (resetLoginState != null) {
+      return resetLoginState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result userNameChanged(UsernameChanged value),
+    @required Result emailChanged(EmailChanged value),
+    @required Result passwordChanged(PasswordChanged value),
+    @required Result phoneNumberChanged(PhoneNumberChanged value),
+    @required Result profileImageFileChanged(ProfileImageFileChanged value),
+    @required
+        Result registerWithEmailAndPasswordPressed(
+            RegisterWithEmailAndPasswordPressed value),
+    @required
+        Result signInWithEmailAndPasswordPressed(
+            SignInWithEmailAndPasswordPressed value),
+    @required Result resetLoginState(ResetLoginState value),
+  }) {
+    assert(userNameChanged != null);
+    assert(emailChanged != null);
+    assert(passwordChanged != null);
+    assert(phoneNumberChanged != null);
+    assert(profileImageFileChanged != null);
+    assert(registerWithEmailAndPasswordPressed != null);
+    assert(signInWithEmailAndPasswordPressed != null);
+    assert(resetLoginState != null);
+    return resetLoginState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result userNameChanged(UsernameChanged value),
+    Result emailChanged(EmailChanged value),
+    Result passwordChanged(PasswordChanged value),
+    Result phoneNumberChanged(PhoneNumberChanged value),
+    Result profileImageFileChanged(ProfileImageFileChanged value),
+    Result registerWithEmailAndPasswordPressed(
+        RegisterWithEmailAndPasswordPressed value),
+    Result signInWithEmailAndPasswordPressed(
+        SignInWithEmailAndPasswordPressed value),
+    Result resetLoginState(ResetLoginState value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (resetLoginState != null) {
+      return resetLoginState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResetLoginState implements LoginFormEvent {
+  const factory ResetLoginState() = _$ResetLoginState;
+}
+
 class _$LoginFormStateTearOff {
   const _$LoginFormStateTearOff();
 
@@ -943,6 +1324,7 @@ class _$LoginFormStateTearOff {
       @required EmailAddress emailAddress,
       @required Password password,
       @required PhoneNumber phoneNumber,
+      @required ProfileImageFile profileImageFile,
       @required bool showErrorMessages,
       @required bool isSubmitting,
       @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
@@ -951,6 +1333,7 @@ class _$LoginFormStateTearOff {
       emailAddress: emailAddress,
       password: password,
       phoneNumber: phoneNumber,
+      profileImageFile: profileImageFile,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
@@ -966,6 +1349,7 @@ mixin _$LoginFormState {
   EmailAddress get emailAddress;
   Password get password;
   PhoneNumber get phoneNumber;
+  ProfileImageFile get profileImageFile;
   bool get showErrorMessages;
   bool get isSubmitting;
   Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption;
@@ -982,6 +1366,7 @@ abstract class $LoginFormStateCopyWith<$Res> {
       EmailAddress emailAddress,
       Password password,
       PhoneNumber phoneNumber,
+      ProfileImageFile profileImageFile,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -1001,6 +1386,7 @@ class _$LoginFormStateCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object password = freezed,
     Object phoneNumber = freezed,
+    Object profileImageFile = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
@@ -1014,6 +1400,9 @@ class _$LoginFormStateCopyWithImpl<$Res>
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
+      profileImageFile: profileImageFile == freezed
+          ? _value.profileImageFile
+          : profileImageFile as ProfileImageFile,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -1037,6 +1426,7 @@ abstract class _$LoginFormStateCopyWith<$Res>
       EmailAddress emailAddress,
       Password password,
       PhoneNumber phoneNumber,
+      ProfileImageFile profileImageFile,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
@@ -1058,6 +1448,7 @@ class __$LoginFormStateCopyWithImpl<$Res>
     Object emailAddress = freezed,
     Object password = freezed,
     Object phoneNumber = freezed,
+    Object profileImageFile = freezed,
     Object showErrorMessages = freezed,
     Object isSubmitting = freezed,
     Object authFailureOrSuccessOption = freezed,
@@ -1071,6 +1462,9 @@ class __$LoginFormStateCopyWithImpl<$Res>
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
+      profileImageFile: profileImageFile == freezed
+          ? _value.profileImageFile
+          : profileImageFile as ProfileImageFile,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
@@ -1089,6 +1483,7 @@ class _$_LoginFormState implements _LoginFormState {
       @required this.emailAddress,
       @required this.password,
       @required this.phoneNumber,
+      @required this.profileImageFile,
       @required this.showErrorMessages,
       @required this.isSubmitting,
       @required this.authFailureOrSuccessOption})
@@ -1096,6 +1491,7 @@ class _$_LoginFormState implements _LoginFormState {
         assert(emailAddress != null),
         assert(password != null),
         assert(phoneNumber != null),
+        assert(profileImageFile != null),
         assert(showErrorMessages != null),
         assert(isSubmitting != null),
         assert(authFailureOrSuccessOption != null);
@@ -1109,6 +1505,8 @@ class _$_LoginFormState implements _LoginFormState {
   @override
   final PhoneNumber phoneNumber;
   @override
+  final ProfileImageFile profileImageFile;
+  @override
   final bool showErrorMessages;
   @override
   final bool isSubmitting;
@@ -1117,7 +1515,7 @@ class _$_LoginFormState implements _LoginFormState {
 
   @override
   String toString() {
-    return 'LoginFormState(username: $username, emailAddress: $emailAddress, password: $password, phoneNumber: $phoneNumber, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'LoginFormState(username: $username, emailAddress: $emailAddress, password: $password, phoneNumber: $phoneNumber, profileImageFile: $profileImageFile, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
   }
 
   @override
@@ -1136,6 +1534,9 @@ class _$_LoginFormState implements _LoginFormState {
             (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.phoneNumber, phoneNumber)) &&
+            (identical(other.profileImageFile, profileImageFile) ||
+                const DeepCollectionEquality()
+                    .equals(other.profileImageFile, profileImageFile)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -1156,6 +1557,7 @@ class _$_LoginFormState implements _LoginFormState {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(profileImageFile) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption);
@@ -1176,6 +1578,8 @@ abstract class _LoginFormState implements LoginFormState {
           @required
               PhoneNumber phoneNumber,
           @required
+              ProfileImageFile profileImageFile,
+          @required
               bool showErrorMessages,
           @required
               bool isSubmitting,
@@ -1191,6 +1595,8 @@ abstract class _LoginFormState implements LoginFormState {
   Password get password;
   @override
   PhoneNumber get phoneNumber;
+  @override
+  ProfileImageFile get profileImageFile;
   @override
   bool get showErrorMessages;
   @override
